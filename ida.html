@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertanyaan Spesial</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+        }
+        h1 {
+            color: #ff69b4;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #question {
+            font-size: 20px;
+            margin-bottom: 30px;
+            color: #333;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #yesButton {
+            background-color: #32cd32;
+            color: white;
+        }
+        #noButton {
+            background-color: #ff4500;
+            color: white;
+            position: relative;
+        }
+        /* Styling untuk pop-up */
+        #popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            width: 80%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+            text-align: center;
+            border-radius: 10px;
+        }
+        #popup h2 {
+            color: #ff1493;
+            margin-bottom: 15px;
+        }
+        #closeButton {
+            background-color: #ff4500;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        /* Background gelap ketika pop-up aktif */
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        /* Warna pink untuk nama */
+        .pink {
+            color: #ff1493; /* Warna pink */
+        }
+    </style>
+</head>
+<body>
+    <h1>Pertanyaan Spesial!</h1>
+    <div id="question">
+        Dear <span class="pink">Nur Faridha</span>, kamu cantik banget deh, udah cantik baik lagi, hadeh hadeh! 😍<br>
+        Kalau dalam bahasa Spanyol, aku bilang <i>“eres hermosa”</i>, dan kalau bahasa Aceh <i>“Kamoe lagak that”</i>.<br>
+        Indonesianya? Cari sendiri yaa, wlee~ 😝<br><br>
+        Btw... <strong>Do you want to be the woman who fills my heart?</strong> 😊💖
+    </div>
+    <button id="yesButton" onclick="showPopup()">Iya</button>
+    <button id="noButton" onclick="moveButton()">Tolak</button>
+
+    <!-- Pop-up dan overlay -->
+    <div id="overlay"></div>
+    <div id="popup">
+        <h2>Selamat <span class="pink">Nur Faridha</span>!</h2>
+        <p>Kamu sekarang resmi jadi pemilik hati Muhammad Fairuzul Wafi Faradis! ❤️</p>
+        <button id="closeButton" onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        function showPopup() {
+            document.getElementById("popup").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        function moveButton() {
+            const noButton = document.getElementById("noButton");
+            const randomX = Math.floor(Math.random() * 200) - 100;
+            const randomY = Math.floor(Math.random() * 200) - 100;
+            noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        }
+    </script>
+</body>
+</html>
